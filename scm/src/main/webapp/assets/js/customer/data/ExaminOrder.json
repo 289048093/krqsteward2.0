@@ -1,0 +1,18 @@
+{
+    "data": {
+        "list": [
+            {
+                "orderNo": "201309111155",
+                "shippingNo": "111",
+                "orderStatus": "已发货",
+                "shippingComp": "申通",
+                "receiverName": "李小四",
+                "confirmUser": "ejushang",
+                "remark": "",
+                "buyerMessage": ""
+            }
+        ]
+    },
+    "success": true,
+    "message": "Loaded data"
+}

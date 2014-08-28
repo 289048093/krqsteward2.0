@@ -1,0 +1,18 @@
+{
+    "data": {
+        "list": [
+            {
+                "code": "01",
+                "category": "碗",
+                "mutex_category": "凳子"
+            },
+            {
+                "code": "02",
+                "category": "衣架",
+                "mutex_category": "凳子"
+            }
+        ]
+    },
+    "success": true,
+    "message": "Loaded data"
+}

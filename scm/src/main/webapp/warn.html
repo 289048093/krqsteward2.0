@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>订单预警</title>
+    <link rel="stylesheet" href="assets/css/warn.css"/>
+</head>
+<body>
+
+<div class="warn_main" id="warn_main">
+    <h2 class="down"><span class="icon"></span><span>需要确认发货的订单</span><span id="no_send_msg" class="msg"></span></h2>
+    <div id="no_send" class="box"></div>
+
+    <script id="no_send_tpl" type="text/html">
+        <table class="table">
+            <thead>
+            <tr>
+                <th class="order_no">订单号</th>
+                <th class="pay_time">付款时间</th>
+                <th class="order_status">订单状态</th>
+            </tr>
+            </thead>
+            <tbody>
+            <%for(i = 0; i < list.length; i ++) {%>
+            <tr>
+                <td class="order_no"><%=list[i].orderNo%></td>
+                <td class="pay_time"><%=list[i].payTime%></td>
+                <td class="order_status"><%=list[i].orderStatus%></td>
+            </tr>
+            <%}%>
+            </tbody>
+        </table>
+    </script>
+
+
+    <h2 class="down"><span class="icon"></span><span>已经发了货却还没有物流扫描信息的订单</span><span id="no_logistics_msg" class="msg"></span></h2>
+
+    <div id="no_logistics" class="box"></div>
+
+    <script id="no_logistics_tpl" type="text/html">
+        <table class="table">
+            <thead>
+            <tr>
+                <th class="order_no">订单号</th>
+                <th class="express_no">物流单号</th>
+                <th class="express_company">物流公司</th>
+                <th class="delivery_time">发货时间</th>
+            </tr>
+            </thead>
+            <tbody>
+            <%for(i = 0; i < list.length; i ++) {%>
+            <tr>
+                <td class="order_no"><%=list[i].orderNo%></td>
+                <td class="express_no"><%=list[i].expressNo%></td>
+                <td class="express_company"><%=list[i].expressCompany%></td>
+                <td class="delivery_time"><%=list[i].deliveryTime%></td>
+            </tr>
+            <%}%>
+            </tbody>
+        </table>
+    </script>
+
+
+    <h2 class="down"><span class="icon"></span><span>物流信息长时间未更新</span><span id="stay_timeout_msg" class="msg"></span></h2>
+    <div id="stay_timeout" class="box"></div>
+
+    <script id="stay_timeout_tpl" type="text/html">
+        <table class="table">
+            <thead>
+            <tr>
+                <th class="order_no">订单号</th>
+                <th class="express_no">物流单号</th>
+                <th class="express_company">物流公司</th>
+                <th class="latest_time">物流最后更新时间</th>
+                <th class="send_to">收货地区</th>
+            </tr>
+            </thead>
+            <tbody>
+            <%for(i = 0; i < list.length; i ++) {%>
+            <tr>
+                <td class="order_no"><%=list[i].orderNo%></td>
+                <td class="express_no"><%=list[i].expressNo%></td>
+                <td class="express_company"><%=list[i].expressCompany%></td>
+                <td class="latest_time"><%=list[i].latestTime%></td>
+                <td class="send_to"><%=list[i].sendTo%></td>
+            </tr>
+            <%}%>
+            </tbody>
+        </table>
+    </script>
+
+    <h2 class="down"><span class="icon"></span><span>需要确认签收的订单</span><span id="no_sign_msg" class="msg"></span></h2>
+
+    <div id="no_sign" class="box"></div>
+    <script id="no_sign_tpl" type="text/html">
+        <table class="table">
+            <thead>
+            <tr>
+                <th class="order_no">订单号</th>
+                <th class="express_no">物流单号</th>
+                <th class="express_company">物流公司</th>
+                <th class="first_time">物流开始时间</th>
+                <th class="send_to">收货地区</th>
+            </tr>
+            </thead>
+            <tbody>
+            <%for(i = 0; i < list.length; i ++) {%>
+            <tr>
+                <td class="order_no"><%=list[i].orderNo%></td>
+                <td class="express_no"><%=list[i].expressNo%></td>
+                <td class="express_company"><%=list[i].expressCompany%></td>
+                <td class="first_time"><%=list[i].firstTime%></td>
+                <td class="send_to"><%=list[i].sendTo%></td>
+            </tr>
+            <%}%>
+            </tbody>
+        </table>
+    </script>
+</div>
+
+<script src="assets/js/libs/jquery.min.js"></script>
+<script src="assets/js/libs/template.js"></script>
+<script src="assets/js/warn/warn.js"></script>
+</body>
+</html>

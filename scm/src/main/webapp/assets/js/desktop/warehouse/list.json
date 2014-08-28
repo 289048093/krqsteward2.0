@@ -1,0 +1,26 @@
+{
+    "data": {
+        "list": [
+            {
+                "id": 1,
+                "name": "尚尼东莞仓库",
+                "repoCode": "XXX111",
+                "address": "广东省深圳市观澜",
+                "chargePerson": "dudu",
+                "chargeMobile": "0755-88888888",
+                "chargePhone": "13800138000"
+            },
+            {
+                "id": 2,
+                "name": "尚尼惠州仓库",
+                "repoCode": "XXX111",
+                "address": "广东省深圳市观澜",
+                "chargePerson": "dudu",
+                "chargeMobile": "0755-88888888",
+                "chargePhone": "13800138000"
+            }
+        ]
+    },
+    "success": true,
+    "msg": ""
+}

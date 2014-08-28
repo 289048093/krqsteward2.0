@@ -1,0 +1,1 @@
+insert into t_conf values(null,'next_return_visit_no',111111,'回访单编号',now(),now(), null);

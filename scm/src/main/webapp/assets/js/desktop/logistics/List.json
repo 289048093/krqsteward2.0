@@ -1,0 +1,13 @@
+{
+    "data": {
+        "list": [
+            {
+                "id": "1",
+                "name": "易居尚",
+                "law": "10"
+            }
+        ]
+    },
+    "success": true,
+    "message": "Loaded data"
+}

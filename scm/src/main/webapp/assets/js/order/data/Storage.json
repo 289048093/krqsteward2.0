@@ -1,0 +1,43 @@
+{"success": true, "msg": "查询成功", "data": {
+    "list": [
+        {
+            "id": 28,
+            "name": "22",
+            "repoCode": "33",
+            "address": "44",
+            "chargePerson": "55",
+            "chargePersonId": null,
+            "chargeMobile": "66",
+            "chargePhone": "77",
+            "createTime": 1388120145000,
+            "updateTime": 1388120145000,
+            "deleteTime": 1388121759000
+        },
+        {
+            "id": 39,
+            "name": "呆呆东莞仓",
+            "repoCode": "xx",
+            "address": "东莞市",
+            "chargePerson": "dudu",
+            "chargePersonId": null,
+            "chargeMobile": "",
+            "chargePhone": "",
+            "createTime": 1388126376000,
+            "updateTime": 1389095196000,
+            "deleteTime": null
+        },
+        {
+            "id": 46,
+            "name": "12321321",
+            "repoCode": "31",
+            "address": "123",
+            "chargePerson": "123",
+            "chargePersonId": null,
+            "chargeMobile": "0755-88888888",
+            "chargePhone": "13800138000",
+            "createTime": 1388991294000,
+            "updateTime": 1389095089000,
+            "deleteTime": null
+        }
+    ]
+}}

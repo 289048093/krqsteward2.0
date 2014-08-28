@@ -1,0 +1,55 @@
+/*
+ * Created by king on 13-12-19
+ */
+
+Ext.define('Supplier.model.OrderList',
+    {
+        //不要忘了继承
+        extend:'Ext.data.Model',
+        fields: [
+            {name: 'id', type: 'int'},
+            'generateType',
+            'orderType',
+            'orderStatus',
+            'orderReturnStatus',
+            'orderNo',
+            'outPlatformType',
+            {name:'platformType',type:'string',mapping:'outPlatformType.name'},
+            'shopName',
+            'shopId',
+            'platformOrderNo',
+            {name:'outActualFee',type:'float'},
+            {name:'actualFee',type:'float'},
+            {name:'sharedDiscountFee',type:'float'},
+            {name:'postFee',type:'float'},
+            {name:'goodsFee',type:'float'},
+            'itemName',
+            {name:'itemCount',type:'float'},
+            {name:'itemNumCount',type:'float'},
+            'specInfo',
+            'refunding',
+            'buyerMessage',
+            'remark',
+            'offlineRemark',
+            'buyerId',
+            'buyTime',
+            'payTime',
+            'repoName',
+            'receiverState',
+            'receiverCity',
+            'receiptTitle',
+            'receiptContent',
+            'receiverDistrict',
+            'receiverAddress',
+            'receiverName',
+            'receiverZip',
+            'receiverPhone',
+            'receiverMobile',
+            'shippingComp',
+            'shippingNo',
+            'orderApproves',
+            'orderHandleLogs',
+        ],
+        idProperty: 'id'
+    }
+)

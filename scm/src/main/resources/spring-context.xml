@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd" default-autowire="byName">
+
+    <!-- 启动扫描 -->
+    <context:component-scan base-package="com.ejushang.steward">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+    </context:component-scan>
+
+    <!-- 启用CGliB -->
+    <aop:aspectj-autoproxy proxy-target-class="true" />
+    <bean class="com.ejushang.steward.common.hibernate.CacheMonitor" />
+
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="${jdbc.driverClassName}" />
+        <property name="jdbcUrl" value="${jdbc.url.spider}" />
+        <property name="user" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+
+        <!-- http://www.mchange.com/projects/c3p0/index.html -->
+        <property name="maxPoolSize" value="100" />
+        <property name="minPoolSize" value="10" />
+        <property name="initialPoolSize" value="30" />
+        <property name="acquireIncrement" value="10" />
+        <property name="maxIdleTime" value="300" />
+        <property name="idleConnectionTestPeriod" value="300" />
+        <property name="maxStatements" value="500"/>
+        <property name="checkoutTimeout" value="30000"/>
+
+        <property name="breakAfterAcquireFailure" value="false" />
+        <property name="testConnectionOnCheckin" value="true" />
+        <property name="preferredTestQuery" value="select 1"/>
+    </bean>
+
+    <!--<bean id="dataSourceTb" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="${jdbc.tb.driverClassName}" />
+        <property name="jdbcUrl" value="${jdbc.tb.url.spider}" />
+        <property name="user" value="${jdbc.tb.username}" />
+        <property name="password" value="${jdbc.tb.password}" />
+
+        &lt;!&ndash; http://www.mchange.com/projects/c3p0/index.html &ndash;&gt;
+        <property name="maxPoolSize" value="100" />
+        <property name="minPoolSize" value="10" />
+        <property name="initialPoolSize" value="30" />
+        <property name="acquireIncrement" value="10" />
+        <property name="maxIdleTime" value="300" />
+        <property name="idleConnectionTestPeriod" value="300" />
+        <property name="maxStatements" value="500"/>
+        <property name="checkoutTimeout" value="30000"/>
+
+        <property name="breakAfterAcquireFailure" value="false" />
+        <property name="testConnectionOnCheckin" value="true" />
+        <property name="preferredTestQuery" value="select 1"/>
+    </bean>-->
+
+    <bean id="sessionFactory" class="com.ejushang.steward.common.hibernate.CustomLocalSessionFactoryBean" >
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan">
+            <list>
+                <value>com.ejushang.steward.**.domain</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
+                <prop key="hibernate.show_sql">${printSql}</prop>
+                <prop key="hibernate.format_sql">${printSql}</prop>
+                <prop key="hibernate.query.substitutions">true 1, false 0</prop>
+                <prop key="hibernate.default_batch_fetch_size">50</prop>
+                <prop key="hibernate.jdbc.batch_size">50</prop>
+                <prop key="hibernate.order_inserts">true</prop>
+                <prop key="hibernate.max_fetch_depth">2</prop>
+                <prop key="hibernate.bytecode.use_reflection_optimizer">true</prop>
+                <prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</prop>
+                <!-- cache -->
+                <prop key="hibernate.cache.use_second_level_cache">false</prop>
+                <prop key="hibernate.cache.use_query_cache">false</prop>
+                <prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop>
+                <prop key="net.sf.ehcache.configurationResourceName">/ehcache.xml</prop>
+                <prop key="hibernate.generate_statistics">false</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <!-- 开启这个配置，spring才能识别@Scheduled注解   -->
+    <task:annotation-driven/>
+
+    <tx:annotation-driven transaction-manager="transactionManager" order="0" />
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" >
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+   <!-- <bean id="jdbcTemplateTb" class="org.springframework.jdbc.core.JdbcTemplate" >
+        <property name="dataSource" ref="dataSourceTb" />
+    </bean>-->
+
+    <bean id="scmApplication" class="com.ejushang.steward.scm.ScmApplication" />
+
+    <bean class="com.ejushang.steward.ordercenter.service.RequestLogisticsInfo">
+        <!-- 第三方物流查询平台的接口地址 -->
+        <property name="thirdUrl" value="${thirdUrl}"/>
+        <!-- 与第三方物流查询平台协商好的 key(用来校验身份) -->
+        <property name="key" value="${key}"/>
+        <!-- 第三方向我方推送数据的回调地址 -->
+        <property name="callBackUrl" value="${callBackUrl}"/>
+
+        <!-- 上面三个必须设置! -->
+
+        <!-- 线上才需要往 kuaidi100 去请求 -->
+        <property name="online" value="${online}"/>
+    </bean>
+
+    <!-- spring rmi client -->
+    <bean id="originalOrderRemoteService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+        <property name="serviceUrl" value="rmi://localhost:10099/OriginalOrderRemoteService" />
+        <property name="serviceInterface" value="com.ejushang.steward.ordercenter.rmi.IOriginalOrderRemoteService" />
+        <property name="lookupStubOnStartup" value="false" />
+        <!--<property name="refreshStubOnConnectFailure" value="false" />-->
+    </bean>
+
+    <!-- 定时任务：生成会员数据 -->
+    <task:scheduler id="springScheduler" pool-size="1"/>
+    <task:scheduled-tasks scheduler="springScheduler">
+        <!--每天00:30定时执行任务-->
+        <task:scheduled ref="generateCustomerCronJob" method="run" cron="0 30 0 * * *"/>
+    </task:scheduled-tasks>
+
+    <import resource="shiro-context.xml" />
+
+</beans>

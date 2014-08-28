@@ -1,0 +1,32 @@
+{"success": true, "msg": "", "data": {
+    "obj": {
+        "pageNo": 1,
+        "pageSize": 15,
+        "totalCount": 4,
+        "result": [
+            {
+                "id": 17,
+                "name": "单身贵族",
+
+            },
+            {
+                "id": 18,
+                "name": "二人世界",
+
+            },
+            {
+                "id": 19,
+                "name": "三口之家",
+
+            },
+            {
+                "id": 22,
+                "name": "见鬼",
+
+            },
+        ],
+        "start": 0,
+        "limit": 15,
+        "totalPage": 1
+    }
+}}

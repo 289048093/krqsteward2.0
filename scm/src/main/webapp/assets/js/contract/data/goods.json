@@ -1,0 +1,46 @@
+{
+    "data": {
+        "list": [
+            {
+                "id": "1",
+                "brandId":2,
+                "brandName": "戴德",
+                "prodName":"锅子",
+                "prodNo":"00A234234",
+                "prodCode":"00222",
+                "prodCategoryName":"锅类",
+                "cid":18,
+                "description":"锅子一个",
+                "shopPrice":"119",
+                "standardPrice":"115",
+                "buyPrice":"1213423",
+                "color":"红",
+                "weight":"10kg",
+                "boxSize":"12*24*5",
+                "speci":"12*24*5",
+                "type":"GIFT"
+            },{
+                "id": "2",
+                "brandId":1,
+                "brandName": "戴德2",
+                "prodName":"锅子2",
+                "prodNo":"00A2342342",
+                "prodCode":"00222",
+                "prodCategoryName":"锅类2",
+                "cid":17,
+                "description":"锅子一个2",
+                "shopPrice":"1192",
+                "standardPrice":"1152",
+                "buyPrice":"121333423",
+                "color":"红2",
+                "weight":"10kg2",
+                "boxSize":"12*24*52",
+                "speci":"12*24*52",
+                "type":"GIFT"
+            }
+        ]
+    },
+    "success": true,
+    "message": "Loaded data"
+}
+

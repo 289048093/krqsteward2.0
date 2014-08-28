@@ -1,0 +1,26 @@
+{
+    "data": {
+        "list": [
+            {
+                "id": 1,
+                "brandId": 1,
+                "priceBegin": "100",
+                "priceEnd": "500",
+                "giftProdId": 101,
+                "giftProdCount": 1,
+                "inUse": 1
+            },
+            {
+                "id": 2,
+                "brandId": 1,
+                "priceBegin": "500",
+                "priceEnd": "1000",
+                "giftProdId": 100,
+                "giftProdCount": 2,
+                "inUse": 0
+            }
+        ]
+    },
+    "success": true,
+    "message": "Loaded data"
+}

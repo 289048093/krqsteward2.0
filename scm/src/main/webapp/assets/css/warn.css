@@ -1,0 +1,57 @@
+html, body, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 15px 15px 35px;
+}
+
+.warn-receiver-info {
+    width: 648px;
+    padding: 20px 0 0;
+}
+
+.warn-order-detail table,
+.warn-receiver-info table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+
+}
+
+.warn-order-detail table th,
+.warn-order-detail table td,
+.warn-receiver-info table th,
+.warn-receiver-info table td {
+    padding: 6px 0;
+    color: #000;
+    border-bottom: 1px solid #ddd;
+}
+
+.warn-order-detail table th,
+.warn-receiver-info table th {
+    font-weight: 700;
+    width: 90px;
+    color: #666;
+    text-align: left;
+}
+
+.order-totalFee {
+    position: absolute;
+    width: 648px;
+    height: 30px;
+    line-height: 30px;
+    text-align: right;
+}
+
+.warn-order-detail table .last th,
+.warn-order-detail table .last td,
+.warn-receiver-info table .last th,
+.warn-receiver-info table .last td {
+    border: 0;
+}
+
+.warn-receiver-info .last .express-info td {
+    border-bottom: 1px solid #ddd;
+}

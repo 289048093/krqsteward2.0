@@ -1,0 +1,71 @@
+{
+    "data": {
+        "list": [
+            {
+                "id": "1",
+                "username": "admin",
+                "email": "admin@ejushang.com",
+                "telephone": 18927039420
+            },
+            {
+                "id": "2",
+                "username": "易居尚2",
+                "email": "lein2@163.com",
+                "telephone": 18927039420
+
+            },
+            {
+                "id": "3",
+                "username": "易居尚3",
+                "email": "lein3@163.com",
+                "telephone": 18927039420
+            },
+            {
+                "id": "4",
+                "username": "易居尚4",
+                "email": "lein4@163.com",
+                "telephone": 18927039420
+            },
+            {
+                "id": "5",
+                "username": "易居尚5",
+                "email": "lein5@163.com",
+                "telephone": 18927039420
+            },
+            {
+                "id": "6",
+                "username": "易居尚6",
+                "email": "lein6@163.com",
+                "telephone": 18927039420
+            },
+            {
+                "id": "7",
+                "username": "易居尚7",
+                "email": "lein7@163.com",
+                "telephone": 18927039420
+            },
+            {
+                "id": "8",
+                "username": "易居尚8",
+                "email": "lein8@163.com",
+                "telephone": 18927039420
+            },
+            {
+                "id": "9",
+                "username": "易居尚9",
+                "email": "lein9@163.com",
+                "telephone": 18927039420
+            },
+            {
+                "id": "10",
+                "username": "易居尚10",
+                "email": "lein10@163.com",
+                "telephone": 18927039420
+            }
+
+
+        ]
+    },
+    "success": true,
+    "message": "Loaded data"
+}

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <!-- authenticator的设置必须在realm前面 -->
+        <property name="authenticator" ref="modularRealmAuthenticator" />
+        <property name="realm" ref="shiroDataBaseRealm" />
+    </bean>
+
+    <bean id="modularRealmAuthenticator" class="org.apache.shiro.authc.pam.ModularRealmAuthenticator" >
+        <property name="authenticationListeners" >
+            <list>
+                <bean class="com.ejushang.steward.scm.common.web.LoginLogoutActionListener" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="shiroDataBaseRealm" class="com.ejushang.steward.common.shiro.ShiroDatabaseRealm" >
+        <property name="credentialsMatcher">
+            <bean class="org.apache.shiro.authc.credential.AllowAllCredentialsMatcher" />
+        </property>
+    </bean>
+
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+
+        <property name="loginUrl" value="/login.html"/>
+        <property name="successUrl" value="/index.html"/>
+        <!--
+        <property name="unauthorizedUrl" value="/unauthorized.action"/>
+        -->
+        <property name="filters">
+            <util:map>
+                <entry key="perms">
+	                <bean class="com.ejushang.steward.common.shiro.PermissionCheckFilter"/>
+                </entry>
+                <entry key="authc">
+                    <bean class="com.ejushang.steward.common.shiro.ShiroReloginFilter"/>
+                </entry>
+            </util:map>
+        </property>
+        <property name="filterChainDefinitions">
+            <value>
+                /assets/** = anon
+                /extjs/** = anon
+                /static/** = anon
+                /upload/** = anon
+                /taobao/** = anon
+                /tb/** = anon
+                /jd/** = anon
+                /captcha.action = anon
+                /favicon.ico = anon
+                /employee/resource = anon
+                /employee/updatePassword= authc
+                /np/** = authc
+                /*.html = authc
+                /logout.action = logout
+                / = authc
+                /** = authc, perms
+            </value>
+        </property>
+    </bean>
+</beans>

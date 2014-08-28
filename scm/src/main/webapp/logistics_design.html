@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>物流单设计 - 智库城</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="assets/css/logistics_design.css"/>
+</head>
+<body>
+
+
+<div class="content" id="content">
+
+    <!-- 设计物流单 -->
+    <div class="design_box" id="design_box">
+
+        <div class="tools">
+            <label>
+                <input type="checkbox" name="发货人" value="40" val="发货人"> 发货人
+            </label>
+            <label>
+                <input type="checkbox" name="发货地址" value="80" val="发货地址"> 发货地址
+            </label>
+            <label>
+                <input type="checkbox" name="发货人联系方式" value="120" val="发货人联系方式"> 发货人联系方式
+            </label>
+            <label>
+                <input type="checkbox" name="发货人单位名称" value="160" val="发货人单位名称"> 发货人单位名称
+            </label>
+            <label>
+                <input type="checkbox" name="收货人" value="200" val="收货人"> 收货人
+            </label>
+            <label>
+                <input type="checkbox" name="收货人联系方式" value="240" val="收货人联系方式"> 收货人联系方式
+            </label>
+            <label>
+                <input type="checkbox" name="邮编" value="280" val="邮编"> 邮编
+            </label>
+            <label>
+                <input type="checkbox" name="收货人地址" value="320" val="收货人地址"> 收货人地址
+            </label>
+            <label>
+                <input type="checkbox" name="发货时间" value="360" val="发货时间"> 发货时间
+            </label>
+            <label>
+                <input type="checkbox" name="收货省" value="400" val="收货省"> 收货省
+            </label>
+            <label>
+                <input type="checkbox" name="收货市" value="440" val="收货市"> 收货市
+            </label>
+            <label>
+                <input type="checkbox" name="收货区" value="480" val="收货区"> 收货区
+            </label>
+            <label>
+                <input type="checkbox" name="商品编码及数量" value="520" val="商品编码及数量"> 商品编码及数量
+            </label>
+
+        </div>
+        <hr />
+
+        <div class="form">
+            <form id="design_form" action="logisticsprint/updateDesign" method="post">
+                <input name="printHtml" id="printHtml" type="hidden" value="">
+                <input name="id" id="logisticsInfoId" type="hidden" value="">
+                页面高(mm) :<input type="number" name="pageHeight" value="1270" id="pageHeight" />
+                页面宽 (mm):<input type="number" name="pageWidth" value="2300" id="pageWidth" />
+                <hr />
+                <button type="button" class="button" id="save_btn">保存</button>
+                <button type="button" class="button" id="delete_btn">删除所选内容项</button>
+            </form>
+        </div>
+        <hr />
+        <div class="main">
+            <object id="LODOP_OB" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width=1000 height=700>
+                <param name="Caption" value="内嵌显示区域">
+                <param name="Border" value="1">
+                <param name="Color" value="#C0C0C0">
+                <embed id="LODOP_EM" TYPE="application/x-print-lodop" width=1000 height=700
+                       PLUGINSPAGE="install_lodop.exe">
+            </object>
+        </div>
+
+
+
+    </div>
+    <!-- 设计物流单 END -->
+
+</div>
+
+<script src="assets/js/libs/jquery.min.js"></script>
+<script src="assets/js/libs/lodopFuncs.js"></script>
+<script src="assets/js/logistics_design/logistics_design.js"></script>
+</body>
+</html>

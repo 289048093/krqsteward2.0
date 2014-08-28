@@ -1,0 +1,152 @@
+{
+    "success": true,
+    "msg": "findConfAll查询成功",
+    "data": {
+        "list": [
+            {
+                "id": 34,
+                "configKey": "ben",
+                "configValue": "sport",
+                "configComment": "订单配置项",
+                "createTime": 1388138006000,
+                "updateTime": 1390195367000,
+                "deleteTime": null
+            },
+            {
+                "id": 35,
+                "configKey": "ben1",
+                "configValue": "yjs",
+                "configComment": "hello",
+                "createTime": 1388138073000,
+                "updateTime": null,
+                "deleteTime": null
+            },
+            {
+                "id": 36,
+                "configKey": "next_order_no",
+                "configValue": "114848",
+                "configComment": null,
+                "createTime": 1388138459000,
+                "updateTime": 1390195332000,
+                "deleteTime": null
+            },
+            {
+                "id": 53,
+                "configKey": "next_meal_set_no",
+                "configValue": "154",
+                "configComment": null,
+                "createTime": null,
+                "updateTime": 1390195332000,
+                "deleteTime": null
+            },
+            {
+                "id": 66,
+                "configKey": "noSendGoodsWarnTime",
+                "configValue": "17:30",
+                "configComment": "买家已付款却还未在 指定时间发货 的报警时间(精确到分, 请使用24小时制并使用英文状态下的冒号, 且不要使用 24 点), 若不设置默认是 17:30",
+                "createTime": 1389843079000,
+                "updateTime": null,
+                "deleteTime": null
+            },
+            {
+                "id": 67,
+                "configKey": "noSendGoodsTriggerWarnTime",
+                "configValue": "16:00",
+                "configComment": "买家在 指定时间已付款 却还未发货的报警时间(精确到分, 请使用24小时制并使用英文状态下的冒号, 且不要使用 24 点), 若不设置默认是 16:00",
+                "createTime": 1389843079000,
+                "updateTime": null,
+                "deleteTime": null
+            },
+            {
+                "id": 68,
+                "configKey": "noLogisticsInfoWarnTime",
+                "configValue": "08:30",
+                "configComment": "已发货, 到了今天的 指定时间 还没有物流信息的报警时间(精确到分, 请用24小时制并使用英文状态下的冒号, 且不要使用 24 点), 若不设置默认是 08:30",
+                "createTime": 1389843079000,
+                "updateTime": null,
+                "deleteTime": null
+            },
+            {
+                "id": 69,
+                "configKey": "latestTimeDistanceHour",
+                "configValue": "24",
+                "configComment": "已发货未签收的包裹最新的状态距离现在多久需要报警的时间, 单位: 小时. 若不设置默认是 24",
+                "createTime": 1389843079000,
+                "updateTime": null,
+                "deleteTime": null
+            },
+            {
+                "id": 70,
+                "configKey": "gdDistanceAddress",
+                "configValue": "广东",
+                "configComment": "提醒附近的订单跟踪物流的地址(请设置得越简洁越好并保持在两个字左右, 可填广东省的, 只写广东即可), 若不设置默认是 广东",
+                "createTime": 1389843079000,
+                "updateTime": null,
+                "deleteTime": null
+            },
+            {
+                "id": 71,
+                "configKey": "gdDistanceHour",
+                "configValue": "48",
+                "configComment": "提醒附近的订单有物流信息后未签收的时间间隔, 单位: 小时. 若不设置默认是 48",
+                "createTime": 1389843079000,
+                "updateTime": null,
+                "deleteTime": null
+            },
+            {
+                "id": 72,
+                "configKey": "jzhDistanceAddress",
+                "configValue": "江苏/浙江/上海",
+                "configComment": "提醒江浙沪跟踪物流的地址(请设置得越简洁越好并保持在两个字左右, 如上海市, 只写上海即可), / 隔开, 若不设置默认是 江苏/浙江/上海",
+                "createTime": 1389843079000,
+                "updateTime": null,
+                "deleteTime": null
+            },
+            {
+                "id": 73,
+                "configKey": "jzhDistanceHour",
+                "configValue": "72",
+                "configComment": "提醒江浙沪地区的订单有物流信息后未签收的时间间隔, 单位: 小时. 若不设置默认是 72",
+                "createTime": 1389843079000,
+                "updateTime": null,
+                "deleteTime": null
+            },
+            {
+                "id": 74,
+                "configKey": "slowDistanceAddress",
+                "configValue": "广西/福建/海南/江西/安徽/湖北/湖南/河南/北京/天津/河北/山东/山西/重庆",
+                "configComment": "提醒稍慢地区跟踪物流的地址(请设置得越简洁越好并保持在两个字左右, 如广西省, 只写广西即可), / 隔开",
+                "createTime": 1389843079000,
+                "updateTime": null,
+                "deleteTime": null
+            },
+            {
+                "id": 75,
+                "configKey": "slowDistanceHour",
+                "configValue": "96",
+                "configComment": "报警提示稍慢地区的订单有物流信息后未签收的时间间隔, 单位: 小时. 若不设置默认是 96",
+                "createTime": 1389843079000,
+                "updateTime": null,
+                "deleteTime": null
+            },
+            {
+                "id": 76,
+                "configKey": "pyDistanceAddress",
+                "configValue": "内蒙/辽宁/吉林/黑龙江/云南/贵州/四川/陕西/甘肃/青海/宁夏/西藏",
+                "configComment": "提醒偏远地区跟踪物流的地址(请设置得越简洁越好并保持在两个字左右, 如内蒙古自治区, 只写内蒙即可), / 隔开",
+                "createTime": 1389843079000,
+                "updateTime": null,
+                "deleteTime": null
+            },
+            {
+                "id": 77,
+                "configKey": "pyDistanceHour",
+                "configValue": "144",
+                "configComment": "提醒偏远地区的订单有物流信息后未签收的时间间隔, 单位: 小时. 若不设置默认是 144",
+                "createTime": 1389843080000,
+                "updateTime": null,
+                "deleteTime": null
+            }
+        ]
+    }
+}

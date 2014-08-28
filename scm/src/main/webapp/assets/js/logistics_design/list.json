@@ -1,0 +1,45 @@
+{
+    "data": {
+        "obj": "shentong",
+        "list": [
+            {
+                "name": "shunfeng",
+                "id": 1,
+                "customerId": 15,
+                "deliveryTypeName": "顺丰",
+                "printHtml": "LODOP.PRINT_INIT(\"初始化打印控件\");\r\nLODOP.ADD_PRINT_SETUP_BKIMG(\"<img border='0' src='http://supplier.ejushang.net/supplier/uploadFile/shunfeng15.jpg'>\");\r\nLODOP.SET_SHOW_MODE(\"BKIMG_IN_PREVIEW\",true);\r\nLODOP.ADD_PRINT_TEXTA(\"发货人\",176,458,175,30,\"发货人\");\r\nLODOP.ADD_PRINT_TEXTA(\"发货地址\",108,231,175,30,\"发货地址\");\r\nLODOP.ADD_PRINT_TEXTA(\"发货人联系方式\",150,227,175,30,\"发货人联系方式\");\r\nLODOP.ADD_PRINT_TEXTA(\"发货人单位名称\",197,230,175,30,\"发货人单位名称\");\r\nLODOP.ADD_PRINT_TEXTA(\"收货人\",244,228,175,30,\"收货人\");\r\nLODOP.ADD_PRINT_TEXTA(\"收货人联系方式\",286,242,175,30,\"收货人联系方式\");\r\nLODOP.ADD_PRINT_TEXTA(\"邮编\",341,239,175,30,\"邮编\");\r\nLODOP.ADD_PRINT_TEXTA(\"收货人地址\",129,472,175,30,\"收货人地址\");\r\n",
+                "law": 2,
+                "logisticsPicturePath": "http://supplier.ejushang.net/supplier/uploadFile/shunfeng15.jpg"
+            },
+            {
+                "name": "yunda",
+                "id": 2,
+                "customerId": 15,
+                "deliveryTypeName": "韵达",
+                "printHtml": "LODOP.PRINT_INITA(0,0,1000,600,\"初始化打印控件\");\nLODOP.ADD_PRINT_SETUP_BKIMG(\"<img border='0' src='http://supplier.ejushang.net/supplier/uploadFile/yunda15.jpg'>\");",
+                "law": 2,
+                "logisticsPicturePath": "http://supplier.ejushang.net/supplier/uploadFile/yunda15.jpg"
+            },
+            {
+                "name": "shentong",
+                "id": 3,
+                "customerId": 15,
+                "deliveryTypeName": "申通",
+                "printHtml": "LODOP.PRINT_INITA(0,0,1000,600,\"初始化打印控件\");\r\nLODOP.ADD_PRINT_SETUP_BKIMG(\"<img border='0' src='http://supplier.ejushang.net/supplier/uploadFile/shentong15.jpg'>\");\r\nLODOP.SET_SHOW_MODE(\"BKIMG_IN_PREVIEW\",true);\r\nLODOP.ADD_PRINT_TEXTA(\"发货人\",109,130,175,30,\"发货人\");\r\nLODOP.ADD_PRINT_TEXTA(\"发货地址\",178,123,278,60,\"发货地址\");\r\nLODOP.ADD_PRINT_TEXTA(\"发货人联系方式\",250,156,244,27,\"发货人联系方式\");\r\nLODOP.ADD_PRINT_TEXTA(\"发货人单位名称\",145,124,275,31,\"发货人单位名称\");\r\nLODOP.ADD_PRINT_TEXTA(\"收货人\",112,489,175,30,\"收货人\");\r\nLODOP.ADD_PRINT_TEXTA(\"收货人联系方式\",249,522,175,30,\"收货人联系方式\");\r\nLODOP.ADD_PRINT_TEXTA(\"收货人地址\",178,479,294,63,\"收货人地址\");\r\nLODOP.ADD_PRINT_TEXTA(\"发货时间\",404,86,175,30,\"发货时间\");\r\n",
+                "law": 1,
+                "logisticsPicturePath": "http://supplier.ejushang.net/supplier/uploadFile/shentong15.jpg"
+            },
+            {
+                "name": "zhongtong",
+                "id": 4,
+                "customerId": 15,
+                "deliveryTypeName": "中通",
+                "printHtml": "LODOP.PRINT_INITA(0,0,1000,600,\"初始化打印控件\");\nLODOP.ADD_PRINT_SETUP_BKIMG(\"<img border='0' src='http://supplier.ejushang.net/supplier/uploadFile/zhongtong15.jpg'>\");",
+                "law": 2,
+                "logisticsPicturePath": "http://supplier.ejushang.net/supplier/uploadFile/zhongtong15.jpg"
+            }
+        ]
+    },
+    "success": true,
+    "msg": ""
+}

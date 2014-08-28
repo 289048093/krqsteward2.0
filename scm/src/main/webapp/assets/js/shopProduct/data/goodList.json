@@ -1,0 +1,60 @@
+{
+    "data": {
+        "list": [
+            {
+                "id": "1",
+                "prodCode": "113",
+                "prodName": "\u65e5\u672c\u91c9\u4e0b\u5f69\u9676\u82b1\u5510\u834948\u578b\u591a\u7528\u7897",
+                "sellPropsStr": "\u4e0b\u5f69\u9676\u82b1",
+                "skuCode": "20130601",
+                "itemType": "xyzabc",
+                "prodPrice": "25.6",
+                "prodCount": "13",
+                "theoryNumber": "52",
+                "brandName": "\u5c1a\u5c3c",
+                "outOrderNo": "xxtt201234568"
+            },
+            {
+                "id": "2",
+                "prodCode": "113",
+                "prodName": "\u65e5\u672c\u91c9\u4e0b\u5f69\u9676\u82b1\u5510\u834948\u578b\u591a\u7528\u7897",
+                "sellPropsStr": "\u4e0b\u5f69\u9676\u82b1",
+                "skuCode": "20130601",
+                "itemType": "xyzabc",
+                "prodPrice": "25.6",
+                "prodCount": "13",
+                "theoryNumber": "52",
+                "brandName": "\u5c1a\u5c3c",
+                "outOrderNo": "xxtt201234568"
+            },
+            {
+                "id": "3",
+                "prodCode": "113",
+                "prodName": "\u65e5\u672c\u91c9\u4e0b\u5f69\u9676\u82b1\u5510\u834948\u578b\u591a\u7528\u7897",
+                "sellPropsStr": "\u4e0b\u5f69\u9676\u82b1",
+                "skuCode": "20130601",
+                "itemType": "xyzabc",
+                "prodPrice": "25.6",
+                "prodCount": "13",
+                "theoryNumber": "52",
+                "brandName": "\u5c1a\u5c3c",
+                "outOrderNo": "xxtt201234568"
+            },
+            {
+                "id": "4",
+                "prodCode": "113",
+                "prodName": "\u65e5\u672c\u91c9\u4e0b\u5f69\u9676\u82b1\u5510\u834948\u578b\u591a\u7528\u7897",
+                "sellPropsStr": "\u4e0b\u5f69\u9676\u82b1",
+                "skuCode": "20130601",
+                "itemType": "xyzabc",
+                "prodPrice": "25.6",
+                "prodCount": "13",
+                "theoryNumber": "52",
+                "brandName": "\u5c1a\u5c3c",
+                "outOrderNo": "xxtt201234568"
+            }
+        ]
+    },
+    "success": true,
+    "message": "Loaded data"
+}

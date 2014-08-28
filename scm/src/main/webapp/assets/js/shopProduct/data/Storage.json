@@ -1,0 +1,40 @@
+{"data": {
+    "list": [
+        {
+            "address": "易居尚",
+            "name": "九牧仓",
+            "location": null,
+            "id": 11,
+            "customerId": 13,
+            "telephone": "123456",
+            "consignor": "易居尚",
+            "remarks": "",
+            "company": "易居尚",
+            "customerName": null
+        },
+        {
+            "address": "易居尚",
+            "name": "科勒仓",
+            "location": null,
+            "id": 12,
+            "customerId": 13,
+            "telephone": "123456",
+            "consignor": "李四",
+            "remarks": "",
+            "company": "易居尚",
+            "customerName": null
+        },
+        {
+            "address": "易居尚",
+            "name": "东鹏仓",
+            "location": null,
+            "id": 13,
+            "customerId": 13,
+            "telephone": "654321",
+            "consignor": "王二",
+            "remarks": "",
+            "company": "易居尚",
+            "customerName": null
+        }
+    ]
+}, "success": true, "msg": ""}

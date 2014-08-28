@@ -1,0 +1,25 @@
+Ext.define('Supplier.model.ItemList',
+    {
+        //不要忘了继承
+        extend:'Ext.data.Model',
+        fields:[
+            'product',
+            'productCode',
+            'productName',
+            'productSku',
+            'id',
+            'type',
+            'cateName',
+            'price',
+            'goodsFee',
+            'buyCount',
+            'repoNum',
+            'specInfo',
+            'brandName',
+            'actualFee',
+            'userActualPrice',
+            'sharedPostFee'
+        ],
+        idProperty: 'id'
+    }
+)

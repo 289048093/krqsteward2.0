@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <appender name="PROJECT" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="${loggingRoot}/steward-grabber.log"/>
+        <param name="Append" value="true"/>
+        <param name="Encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss sss} [%X{requestURIWithQueryString}] [%p] %l - %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="PROJECT_ERROR" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="${loggingRoot}/steward-grabber-error.log"/>
+        <param name="Append" value="true"/>
+        <param name="Encoding" value="UTF-8"/>
+        <param name="Threshold" value="WARN"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss sss} [%X{requestURIWithQueryString}] [%p] %l - %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+        <param name="Threshold" value="debug"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss sss} [%X{requestURIWithQueryString}] [%p] %l - %m%n"/>
+        </layout>
+    </appender>
+
+    <!-- spring mvc log -->
+    <logger name="org.springframework.web">
+        <level value="${springLog}"/>
+    </logger>
+    <logger name="org.springframework">
+        <level value="${springLog}"/>
+    </logger>
+
+    <!-- spring & hibernate transaction log -->
+    <logger name="org.springframework.transaction">
+        <level value="${transactionLog}"/>
+    </logger>
+    <logger name="org.springframework.jdbc.datasource">
+        <level value="${transactionLog}"/>
+    </logger>
+    <logger name="org.springframework.orm.hibernate4">
+        <level value="${transactionLog}"/>
+    </logger>
+
+    <!-- hibernate log -->
+    <logger name="org.hibernate">
+        <level value="${hibernateLog}"/>
+    </logger>
+    <logger name="org.hibernate.cache">
+        <level value="${hibernateLog}"/>
+    </logger>
+
+    <!-- project log -->
+    <logger name="com.ejushang.steward">
+        <level value="${projectLog}"/>
+    </logger>
+    <logger name="com.ejushang.steward.common.genericdao.search">
+        <level value="WARN"/>
+    </logger>
+
+
+    <root>
+        <level value="${loggerLevel}"/>
+        <appender-ref ref="PROJECT"/>
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="PROJECT_ERROR"/>
+    </root>
+</log4j:configuration>

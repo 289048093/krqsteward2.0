@@ -1,0 +1,81 @@
+{
+    "data": {
+        "list": [
+            {
+                "name": "订单管理",
+                "iconCls": "desktop-order",
+                "module": "order-win"
+            },
+            {
+                "name": "发货管理",
+                "iconCls": "desktop-shipment",
+                "module": "shipment-win"
+            },
+            {
+                "name": "库存管理",
+                "iconCls": "desktop-stock",
+                "module": "stock-win"
+            },
+            {
+                "name": "物流管理",
+                "iconCls": "desktop-logistics",
+                "module": "logistics-win"
+            },
+            {
+                "name": "仓库管理",
+                "iconCls": "desktop-warehouse",
+                "module": "warehouse-win"
+            },
+            {
+                "name": "优惠活动管理",
+                "iconCls": "desktop-gift",
+                "module": "gift-win"
+            },
+            {
+                "name": "品牌及分类管理",
+                "iconCls": "desktop-goods",
+                "module": "goods-win"
+            },
+            {
+                "name": "权限管理",
+                "iconCls": "desktop-promission",
+                "module": "promission-win"
+            },
+            {
+                "name": "店铺管理",
+                "iconCls": "desktop-shop",
+                "module": "shop-win"
+            },
+            {
+                "name": "系统配置",
+                "iconCls": "desktop-config",
+                "module": "config-win"
+            },
+            {
+                "name": "产品管理",
+                "iconCls": "desktop-product",
+                "module": "product-win"
+            },
+            {
+                "name": "系统日志",
+                "iconCls": "desktop-log",
+                "module": "log-win"
+            },
+            {
+                "name": "套餐管理",
+                "iconCls": "desktop-mealset",
+                "module": "mealset-win"
+            },
+            {
+                "name": "订单预警",
+                "iconCls": "desktop-warn",
+                "module": "warn-win"
+            }
+        ]
+    },
+    "success": true,
+    "message": "Loaded data"
+}
+
+
+

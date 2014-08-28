@@ -1,0 +1,23 @@
+{
+    "data": {
+        "list": [
+            {
+                "productNum": 0012312312,
+                "name": "梦龙牌小雪糕",
+                "price":1000
+            },
+            {
+                "productNum": 00123123567,
+                "name": "戴德小锅",
+                "price":100
+            },
+            {
+                "productNum": 003453455,
+                "name": "易居尚卡币",
+                "price":500
+            }
+        ]
+    },
+    "success": true,
+    "message": "Loaded data"
+}

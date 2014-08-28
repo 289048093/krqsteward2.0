@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd" default-autowire="byName">
+
+    <!-- 启动扫描 -->
+    <context:component-scan base-package="com.ejushang.steward">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+    </context:component-scan>
+
+    <!-- 启用CGliB -->
+    <aop:aspectj-autoproxy proxy-target-class="true" />
+
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="${jdbc.driverClassName}" />
+        <property name="jdbcUrl" value="${jdbc.url.spider}" />
+        <property name="user" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+
+        <!-- http://www.mchange.com/projects/c3p0/index.html -->
+        <property name="maxPoolSize" value="50" />
+        <property name="minPoolSize" value="5" />
+        <property name="initialPoolSize" value="8" />
+        <property name="acquireIncrement" value="5" />
+        <property name="maxIdleTime" value="300" />
+        <property name="idleConnectionTestPeriod" value="300" />
+        <property name="maxStatements" value="200"/>
+        <property name="checkoutTimeout" value="30000"/>
+
+        <property name="breakAfterAcquireFailure" value="false" />
+        <property name="testConnectionOnCheckin" value="true" />
+        <property name="preferredTestQuery" value="select 1"/>
+    </bean>
+
+    <bean id="dataSourceTb" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="${jdbc.tb.driverClassName}" />
+        <property name="jdbcUrl" value="${jdbc.tb.url.spider}" />
+        <property name="user" value="${jdbc.tb.username}" />
+        <property name="password" value="${jdbc.tb.password}" />
+
+        <!-- http://www.mchange.com/projects/c3p0/index.html -->
+        <property name="maxPoolSize" value="100" />
+        <property name="minPoolSize" value="10" />
+        <property name="initialPoolSize" value="30" />
+        <property name="acquireIncrement" value="10" />
+        <property name="maxIdleTime" value="300" />
+        <property name="idleConnectionTestPeriod" value="300" />
+        <property name="maxStatements" value="500"/>
+        <property name="checkoutTimeout" value="30000"/>
+
+        <property name="breakAfterAcquireFailure" value="false" />
+        <property name="testConnectionOnCheckin" value="true" />
+        <property name="preferredTestQuery" value="select 1"/>
+    </bean>
+
+    <bean id="sessionFactory" class="com.ejushang.steward.common.hibernate.CustomLocalSessionFactoryBean" >
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan">
+            <list>
+                <value>com.ejushang.steward.**.domain</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
+                <prop key="hibernate.show_sql">${printSql}</prop>
+                <prop key="hibernate.format_sql">${printSql}</prop>
+                <prop key="hibernate.query.substitutions">true 1, false 0</prop>
+                <prop key="hibernate.default_batch_fetch_size">50</prop>
+                <prop key="hibernate.jdbc.batch_size">50</prop>
+                <prop key="hibernate.order_inserts">true</prop>
+                <prop key="hibernate.max_fetch_depth">2</prop>
+                <prop key="hibernate.bytecode.use_reflection_optimizer">true</prop>
+                <prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</prop>
+                <!-- cache -->
+                <prop key="hibernate.cache.use_second_level_cache">false</prop>
+                <prop key="hibernate.cache.use_query_cache">false</prop>
+                <!--<prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop>-->
+                <!--<prop key="net.sf.ehcache.configurationResourceName">/ehcache.xml</prop>-->
+                <prop key="hibernate.generate_statistics">false</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager" />
+
+    <bean id="jdbcTemplateTb" class="org.springframework.jdbc.core.JdbcTemplate" >
+        <property name="dataSource" ref="dataSourceTb" />
+    </bean>
+
+    <bean id="grabberApplication" class="com.ejushang.steward.grabber.GrabberApplication" />
+
+
+    <bean id="grabberMonitor" class="com.ejushang.steward.main.GrabberMonitor" />
+
+    <bean id="mbeanServer" class="org.springframework.jmx.support.MBeanServerFactoryBean"/>
+
+    <bean id="httpJDMKAdaptor" class="com.sun.jdmk.comm.HtmlAdaptorServer" init-method="start" destroy-method="stop" >
+        <property name="port" value="30002" />
+    </bean>
+
+    <bean id="mBeanExporter" class="org.springframework.jmx.export.MBeanExporter"
+          lazy-init="false">
+        <!--<property name="assembler" ref="assembler"/>-->
+        <property name="server" ref="mbeanServer"/>
+        <property name="beans">
+            <map>
+                <entry key="com.ejushang.steward.main:name=grabberMonitor" value-ref="grabberMonitor"/>
+                <entry key="htmlAdpter:name=httpJDMKAdaptor" value-ref="httpJDMKAdaptor"/>
+            </map>
+        </property>
+
+    </bean>
+
+
+    <!-- spring rmi server -->
+    <bean id="serviceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="OriginalOrderRemoteService" />
+        <property name="service" ref="originalOrderRemoteService" />
+        <property name="serviceInterface" value="com.ejushang.steward.ordercenter.rmi.IOriginalOrderRemoteService" />
+        <property name="registryPort" value="10099" />
+    </bean>
+
+    <bean id="originalOrderRemoteService" class="com.ejushang.steward.rmi.impl.OriginalOrderRemoteService" />
+
+
+</beans>

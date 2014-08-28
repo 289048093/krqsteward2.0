@@ -1,0 +1,92 @@
+{
+    "data": {
+        "list": [
+            {
+                "id": 1,
+                "brandName": "爱东爱西",
+                "prodNo": "xx11",
+                "prodName": "垃圾桶",
+                "shopPrice": "12.00"
+            },
+            {
+                "id": 2,
+                "brandName": "爱东爱西",
+                "prodNo": "xx11",
+                "prodName": "垃圾桶",
+                "shopPrice": "12.00"
+            },
+            {
+                "id": 3,
+                "brandName": "爱东爱西",
+                "prodNo": "xx11",
+                "prodName": "垃圾桶",
+                "shopPrice": "12.00"
+            },
+            {
+                "id": 4,
+                "brandName": "爱东爱西",
+                "prodNo": "xx11",
+                "prodName": "垃圾桶",
+                "shopPrice": "12.00"
+            },
+            {
+                "id": 5,
+                "brandName": "爱东爱西",
+                "prodNo": "xx11",
+                "prodName": "垃圾桶",
+                "shopPrice": "12.00"
+            },
+            {
+                "id": 6,
+                "brandName": "爱东爱西",
+                "prodNo": "xx11",
+                "prodName": "垃圾桶",
+                "shopPrice": "12.00"
+            },
+            {
+                "id": 7,
+                "brandName": "爱东爱西",
+                "prodNo": "xx11",
+                "prodName": "垃圾桶",
+                "shopPrice": "12.00"
+            },
+            {
+                "id": 8,
+                "brandName": "爱东爱西",
+                "prodNo": "xx11",
+                "prodName": "垃圾桶",
+                "shopPrice": "12.00"
+            },
+            {
+                "id": 9,
+                "brandName": "爱东爱西",
+                "prodNo": "xx11",
+                "prodName": "垃圾桶",
+                "shopPrice": "12.00"
+            },
+            {
+                "id": 10,
+                "brandName": "爱东爱西",
+                "prodNo": "xx11",
+                "prodName": "垃圾桶",
+                "shopPrice": "12.00"
+            },
+            {
+                "id": 11,
+                "brandName": "爱东爱西",
+                "prodNo": "xx11",
+                "prodName": "垃圾桶",
+                "shopPrice": "12.00"
+            },
+            {
+                "id": 12,
+                "brandName": "爱东爱西",
+                "prodNo": "xx11",
+                "prodName": "垃圾桶",
+                "shopPrice": "12.00"
+            }
+        ]
+    },
+    "success": true,
+    "msg": ""
+}

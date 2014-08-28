@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>欢迎登录智库城</title>
+    <link rel="stylesheet" href="assets/css/login.css"/>
+</head>
+<body>
+
+<div class="login-page">
+    <div class="main">
+        <h1 class="header">欢迎登录智库城</h1>
+
+        <form action="login.html" method="post" id="login-form">
+            <ul class="content">
+                <li>
+                    <label for="username">用户名：</label>
+                    <input type="text" id="username" name="username" class="text"/>
+                    <span class="icon icon-username"></span>
+                </li>
+                <li>
+                    <label for="password">密码：</label>
+                    <input type="password" id="password" name="password" class="text"/>
+                    <span class="icon icon-password"></span>
+                </li>
+                <li>
+                    <label for="captcha">验证码：</label>
+                    <input type="text" id="captcha" name="captcha" class="text code" maxlength="4"/>
+                    <img height="40" title="点击更换" id="img_captcha" src="/captcha.action">
+                </li>
+            </ul>
+
+            <div class="footer">
+                <button type="submit" class="btn">登 录</button>
+                <input type="checkbox" name="rememberMe" id="rememberMe">
+                <label for="rememberMe">记住我</label>
+            </div>
+        </form>
+        <div class="msg" id="msg"></div>
+    </div>
+</div>
+
+<div style="position:absolute;bottom:8%; height:30px;width:100%;">
+    <p style="color:#999;text-align:center;font-size:12px;">智库城 v1.0.1</p>
+</div>
+<script src="assets/js/libs/jquery.min.js"></script>
+<script src="assets/js/login.js"></script>
+</body>
+</html>

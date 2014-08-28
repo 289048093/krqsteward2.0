@@ -1,0 +1,20 @@
+{
+    "data": {
+        "list": [
+            {
+                "id": 4,
+                "name": "梦龙雪糕套餐"
+            },
+            {
+                "id": 5,
+                "name": "戴德黄金周套餐"
+            },
+            {
+                "id": 6,
+                "name": "易居尚卡币套餐"
+            }
+        ]
+    },
+    "success": true,
+    "message": "Loaded data"
+}

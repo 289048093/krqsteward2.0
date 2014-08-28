@@ -1,0 +1,24 @@
+{
+    "data": {
+        "list": [
+            {
+                "id":"1",
+                "userName":"许梦龙",
+                "operationName":"操作名称",
+                "resourceName":"产品管理",
+                "createTime":"2014-01-16 14:37:24",
+                "executionTime":"2014-01-16 14:37:24"
+            },{
+                "id":"2",
+                "userName":"许梦龙1",
+                "operationName":"操作名称",
+                "resourceName":"产品管理",
+                "createTime":"2014-01-16 14:37:24",
+                "executionTime":"2014-01-16 14:37:24"
+            }
+        ]
+    },
+    "success": true,
+    "message": "Loaded data"
+}
+

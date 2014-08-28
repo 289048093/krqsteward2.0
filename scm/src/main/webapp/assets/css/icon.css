@@ -1,0 +1,80 @@
+.icon-add {
+    background: url('../images/icons/add.gif') no-repeat;
+}
+
+.icon-remove {
+    background: url('../images/icons/delete.gif') no-repeat;
+}
+
+.icon-edit {
+    background: url('../images/icons/plugin.gif') !important;
+}
+
+.icon-join {
+    background: url('../images/icons/join.png') !important;
+}
+
+.icon-split {
+    background: url('../images/icons/split.png') !important;
+}
+
+
+.icon-refresh {
+    background: url('../images/icons/refresh.png') !important;
+}
+
+.icon-batch-edit {
+    background: url(../images/icons/batch-edit.png) !important;
+}
+
+.icon-batch-delete {
+    background: url(../images/icons/batch-delete.png) !important;
+}
+
+.icon-import {
+    background: url(../images/icons/door_in.png) !important;
+}
+
+.icon-goback {
+    background: url(../images/icons/door_out.png) !important;
+}
+
+.icon-cancel {
+    background: url(../images/icons/lock.png) !important;
+}
+
+.icon-recover {
+    background: url(../images/icons/lock_open.png) !important;
+}
+
+.icon-cart-put {
+    background: url(../images/icons/cart_put.png) !important;
+}
+
+.icon-copy {
+     background: url(../images/icons/page_copy.png) !important;
+ }
+
+.icon-printer {
+    background: url(../images/icons/printer.png) !important;
+}
+
+.icon-examine {
+    background: url(../images/icons/eye.png) !important;
+}
+
+.icon-batch-examine {
+    background: url(../images/icons/page_find.png) !important;
+}
+
+.icon-deliver {
+    background: url(../images/icons/lorry_go.png) !important;
+}
+
+.icon-search {
+    background: url(../images/icons/search.png) !important;
+}
+
+.x-grid-record-blue table{color:blue;}
+.x-grid-record-green table{color:green;}
+.x-grid-record-red{color:red !important;background: #FF0000 !important;}

@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<permissions>
+    <resource name="订单管理" unique-key="order" iconCls="desktop-order" module="order-win" entryOperation="查询订单">
+        <operation name="查询订单" url="/order/list" required="查询订单详细,订单界面"/>
+        <operation name="查看订单审核信息" url="/order/approveLogs"/>
+        <operation name="批量审核" url="/order/check" required="查询订单"/>
+        <operation name="查询订单详细" url="/order/ItemList"/>
+        <operation name="编辑订单" url="/order/updateByOrder" required="查询订单"/>
+        <operation name="批量改物流" url="/order/updateStautsByOrder" required="查询订单,查询所有仓库,查看所有的店铺"/>
+        <operation name="订单作废" url="/order/cancellation" required="查询订单"/>
+        <operation name="订单恢复" url="/order/recover" required="查询订单"/>
+        <operation name="导入进销存" url="/order/confirm" required="查询订单"/>
+        <operation name="加产品" url="/order/addGift" required="查询产品,查询订单"/>
+        <operation name="订单界面" url="/order" configable="false" required="查询所有仓库,查询品牌,查看所有的店铺"/>
+        <operation name="订单拆分" url="/order/splitOrder" required="查询订单"/>
+        <operation name="订单售前换货" url="/order/exchangeGood" required="查询订单,查询产品"/>
+        <operation name="加订单" url="/order/addOrder" required="查询订单,搜索产品,查看所有的店铺"/>
+        <operation name="加售后换货订单" url="/order/addExchangeOrder" required="查询订单,搜索产品,查看所有的店铺"/>
+        <operation name="查看所有的店铺" url="/order/shopList" configable="false"/>
+        <operation name="搜索产品" url="/product/list/addOrder" configable="false"/>
+        <operation name="删除订单详细" url="/order/deleteItemList" required="查询订单"/>
+        <operation name="补货换货订单导出" url="/order/extractExchangeOrder2Excel" required="查询订单"/>
+        <operation name="订单管理订单导出" url="/order/reportOrders"/>
+        <operation name="订单管理订单导入" url="/order/leadInOrders" required="查询订单"/>
+        <operation name="订单管理订单导入模板" url="/order/leadInOrderTemplate"/>
+        <operation name="刷单" url="/order/cheatOrder" required="查询订单"/>
+    </resource>
+
+    <resource name="异常订单管理" unique-key="originalOrder" iconCls="desktop-originalOrder" module="originalOrder-win"
+              entryOperation="异常订单查询">
+        <operation name="异常订单界面" url="/originalOrder" configable="false" required="查询所有仓库,查询品牌,查看所有的店铺"/>
+        <operation name="异常订单查询" url="/dealOriginalOrder/list" required="查询品牌,查看所有的店铺,异常订单详细,异常订单解析日志"/>
+        <operation name="更新异常订单项sku" url="/dealOriginalOrder/updateItem" required="异常订单查询"/>
+        <operation name="异常订单作废" url="/dealOriginalOrder/cancellation" required="异常订单查询"/>
+        <operation name="异常订单恢复" url="/dealOriginalOrder/recover" required="异常订单查询"/>
+        <operation name="异常订单解析" url="/dealOriginalOrder/analyze" required="异常订单查询"/>
+        <operation name="异常订单详细" url="/dealOriginalOrder/findItem"/>
+        <operation name="异常订单解析日志" url="/dealOriginalOrder/findLog"/>
+    </resource>
+
+    <resource name="仓库管理" unique-key="repository" iconCls="desktop-warehouse" module="warehouse-win"
+              entryOperation="查询仓库">
+        <operation name="查询所有仓库" url="/repository/find_all" configable="false"/>
+        <operation name="查询仓库" url="/repository/list"/>
+        <operation name="添加仓库" url="/repository/add" required="查询仓库,查询省份,用户列表,查询仓库联系人"/>
+        <operation name="删除仓库" url="/repository/delete" required="查询仓库"/>
+        <operation name="查询省份" url="/province/findAll" configable="false"/>
+        <operation name="编辑仓库" url="/repository/save" required="查询仓库,用户列表,查询省份,查询仓库联系人"/>
+        <operation name="用户列表" url="/employee/list" configable="false"/>
+        <operation name="查询仓库联系人" url="/repository/getRepoEmployee" configable="false"/>
+    </resource>
+
+    <resource name="产品管理" unique-key="product" iconCls="desktop-product" module="product-win" entryOperation="查询产品">
+        <operation name="查询产品" url="/product/list" required="产品头标签,查询品牌名称"/>
+        <operation name="产品详细" url="/product/detail" configable="false"/>
+        <operation name="产品头标签" url="/product/getHead" configable="false"/>
+        <operation name="添加产品" url="/product/save" required="查询产品,产品分类查询,查询品牌,查询仓库"/>
+        <operation name="编辑产品" url="/product/update" required="查询产品,产品分类查询,查询品牌,查询仓库,产品详细"/>
+        <operation name="导入产品" url="/product/leadingIn" required="查询产品,下载excel样板"/>
+        <operation name="下载excel样板" url="/templet/productExcelModel" configable="false"/>
+        <operation name="产品列表" url="/product" configable="false" required="查询平台信息"/>
+        <operation name="删除产品" url="/product/delete" required="查询产品"/>
+    </resource>
+
+
+    <resource name="发货管理" unique-key="invoice" iconCls="desktop-shipment" module="shipment-win" entryOperation="查询发货订单">
+        <operation name="查询发货订单" url="/invoice/list_invoice_orders" configable="false"/>
+        <operation name="批量改订单物流" url="/order/invoiceUpdateStautsByOrder" required="查询发货订单,查询发货订单项"/>
+        <operation name="查询发货订单项" url="/invoice/list_invoice_order_item" required="查询发货订单"/>
+        <operation name="返回客服处理" url="/invoice/back_to_wait_process" required="查询发货订单,查询发货订单项"/>
+        <operation name="获取物流单页面" url="/logisticsprint/get_print_html" configable="false" required="查询所有仓库"/>
+        <operation name="打印物流单" url="/invoice/delivery_print" required="查询发货订单,查询发货订单项,获取物流单页面"/>
+        <operation name="打印发货单" url="/invoice/order_print" required="查询发货订单,查询发货订单项"/>
+        <operation name="联想物流单号" url="/invoice/OrderShipping/update" required="查询发货订单,查询发货订单项"/>
+        <operation name="修改订单物流单号" url="/order/updateShippingNo" required="查询发货订单,查询发货订单项"/>
+        <operation name="确认打印" url="/invoice/affirm_print" required="查询发货订单,查询发货订单项"/>
+
+        <operation name="返回待处理" url="/invoice/back_to_confirm" required="查询发货订单,查询发货订单项"/>
+        <operation name="验货" url="/invoice/batch_examine" required="查询发货订单,查询发货订单项"/>
+        <operation name="验货订单查询" url="/invoice/inspection" required="查询发货订单,查询发货订单项"/>
+
+        <operation name="返回已打印" url="/invoice/back_to_print" required="查询发货订单,查询发货订单项"/>
+        <operation name="确认发货" url="/invoice/invoice" required="查询发货订单,查询发货订单项"/>
+
+        <operation name="签收订单" url="/invoice/signed" required="查询发货订单,查询发货订单项"/>
+        <operation name="发货管理订单导出" url="/invoice/list_invoice_report_orders"/>
+        <operation name="发货管理汇总导出" url="/invoice/collect_invoice_order_excel"/>
+
+    </resource>
+    <resource name="库存管理" unique-key="storage" iconCls="desktop-stock" module="stock-win" entryOperation="查询库存">
+        <operation name="查询库存" url="/storage/list" configable="false" required="查询品牌名称,查询仓库,产品分类查询"/>
+        <operation name="入库" url="/storage/storage_increment" required="查询库存"/>
+        <operation name="出库" url="/storage/storage_reduce" required="查询库存"/>
+        <operation name="库存导入模版下载" url="/storage/download_template" required="查询库存"/>
+        <operation name="预览库存导入文件" url="/storage/preview_batch_update" required="查询库存"/>
+        <operation name="批量导入库存" url="/storage/batch_update" required="查询库存"/>
+        <operation name="强制批量导入库存" url="/storage/force_batch_update" required="查询发货订单"/>
+    </resource>
+    <resource name="物流管理" unique-key="LogisticsInfo" iconCls="desktop-logistics" module="logistics-win"
+              entryOperation="物流查询">
+        <operation name="物流查询" url="/logisticsprint/list" configable="false"/>
+        <operation name="物流保存或更新" url="/logisticsprint/save" required="物流查询"/>
+        <operation name="物流跳转" url="/logistics_design" configable="false"/>
+        <operation name="获取物流设计信息" url="/logisticsprint/detail" configable="false"/>
+        <operation name="物流打印信息设计" url="/logisticsprint/updateDesign" required="物流查询,物流跳转,获取物流设计信息"/>
+    </resource>
+    <resource name="库存日志管理" unique-key="storageFlow" iconCls="desktop-storageflowlog" module="storageflowlog-win"
+              entryOperation="查询出入库产品">
+        <operation name="查询出入库产品" url="/storageflow/list_product" configable="false" required="查询仓库"/>
+        <operation name="查询产品出入库日志" url="/storageflow/list" configable="false" required="查询出入库产品"/>
+    </resource>
+    <resource name="供应商合同信息" unique-key="contract" iconCls="desktop-contract" module="contract-win"
+              entryOperation="查询合同">
+        <operation name="查询合同" url="/contract/list" configable="false" required="查询供应商"/>
+        <operation name="添加合同" url="/contract/save" required="查询合同"/>
+        <operation name="修改合同" url="/contract/update" required="查询合同"/>
+        <operation name="删除合同" url="/contract/delete" required="查询合同"/>
+        <operation name="导入合同" url="/contract/leadingIn" required="查询合同"/>
+    </resource>
+    <resource name="品牌管理" unique-key="brand" iconCls="desktop-brand" module="brand-win" entryOperation="查询品牌">
+        <operation name="查询品牌" url="/brand/list" configable="false" required="查询供应商"/>
+        <operation name="查询品牌名称" url="/brand/list_brand_id_name" configable="false"/>
+        <operation name="添加品牌" url="/brand/save" required="查询品牌"/>
+        <operation name="修改品牌" url="/brand/update" required="查询品牌"/>
+        <operation name="删除品牌" url="/brand/delete" required="查询品牌"/>
+        <operation name="导入品牌" url="/brand/leadingIn" required="查询品牌"/>
+    </resource>
+
+    <resource name="退款管理" unique-key="refund" iconCls="desktop-refund" module="refund-win" entryOperation="查询退款">
+        <operation name="查询退款" url="/refund/list" required="查看所有的店铺"/>
+        <operation name="删除线下退款" url="/refund/delete" required="查询退款"/>
+        <operation name="修改线上退款信息" url="/refund/update" required="查询退款,删除订单详细"/>
+        <operation name="添加线下退款信息" url="/refund/add" required="查询退款,查询订单详细"/>
+        <operation name="导出退款信息" url="/refund/extract2excel" required="查询退款"/>
+    </resource>
+    <resource name="供应商管理" unique-key="supplier" iconCls="desktop-supplier" module="supplier-win"
+              entryOperation="查询供应商">
+        <operation name="查询供应商" url="/supplier/list" configable="false"/>
+        <operation name="删除供应商" url="/supplier/delete" required="查询供应商"/>
+        <operation name="修改供应商" url="/supplier/update" required="查询供应商"/>
+        <operation name="添加供应商" url="/supplier/save" required="查询供应商"/>
+    </resource>
+    <resource name="平台管理" unique-key="platform" iconCls="desktop-platform" module="platform-win"
+              entryOperation="查询平台信息">
+        <operation name="查询平台信息" url="/platform/list" configable="false"/>
+        <operation name="删除平台信息" url="/platform/delete" required="查询平台信息"/>
+        <operation name="修改平台信息" url="/platform/update" required="查询平台信息"/>
+        <operation name="添加平台信息" url="/platform/save" required="查询平台信息"/>
+    </resource>
+
+    <resource name="抓单记录" unique-key="orderfetch" iconCls="desktop-orderfetch" module="orderfetch-win"
+              entryOperation="查询抓取记录">
+        <operation name="查询抓取记录" url="/orderFetch/list" required="手动抓取订单,获取抓取数据类型列表,获取抓取日期类型列表,获取抓取条件类型列表,获取手动抓单记录日志"
+                   configable="false"/>
+        <operation name="手动抓取订单" url="/omc/fetchOrderByManual" configable="false"/>
+        <operation name="获取抓取数据类型列表" url="/omc/findFetchDataType" configable="false"/>
+        <operation name="获取抓取日期类型列表" url="/omc/findFetchDateType" configable="false"/>
+        <operation name="获取抓取条件类型列表" url="/omc/findFetchByType" configable="false"/>
+        <operation name="获取手动抓单记录日志" url="/omc/findOrderFetchByHand" configable="false"/>
+    </resource>
+
+    <resource name="系统配置" unique-key="conf" iconCls="desktop-config" module="config-win" entryOperation="查询配置">
+        <operation name="查询配置" url="/conf/list"/>
+        <operation name="添加修改配置" url="/conf/addOrUpdate" required="查询配置"/>
+    </resource>
+
+    <resource name="系统日志" unique-key="businessLog" iconCls="desktop-log" module="log-win" entryOperation="查询日志">
+        <operation name="查询日志" url="/businessLog/list"/>
+    </resource>
+
+    <resource name="预收款分配" unique-key="payment" iconCls="desktop-payment" module="payment-win" entryOperation="预收款查询">
+        <operation name="预收款查询" url="/payment/list" required="预收款明细查询,查看所有的店铺"/>
+        <operation name="预收款明细查询" url="/payment/orderItem" configable="false"/>
+        <operation name="订单项分配前检查" url="/payment/isOrderItemLegal" required="预收款查询"/>
+        <operation name="预收款分配" url="/payment/save" required="预收款查询,订单项分配前检查,查询订单详细"/>
+        <operation name="导出预收款信息" url="/payment/extract2excel" required="预收款查询"/>
+    </resource>
+
+    <resource name="套餐管理" unique-key="mealset" iconCls="desktop-mealset" module="mealset-win" entryOperation="套餐查询">
+        <operation name="套餐查询" url="/mealset/list" required="套餐项查询"/>
+        <operation name="套餐项查询" url="/mealSetItem/list" configable="false"/>
+        <operation name="新增套餐" url="/mealset/save" required="套餐查询,查询产品"/>
+        <operation name="删除套餐" url="/mealset/delete" required="套餐查询"/>
+        <operation name="修改套餐" url="/meal_set/update" required="套餐查询"/>
+    </resource>
+
+    <resource name="产品分类管理" unique-key="productCategory" iconCls="desktop-productCategory" module="productCategory-win"
+              entryOperation="产品分类查询">
+        <operation name="产品分类查询" url="/productCategory/list"/>
+        <operation name="新增产品分类" url="/productCategory/save" required="产品分类查询"/>
+        <operation name="修改产品分类" url="/productCategory/update" required="产品分类查询"/>
+        <operation name="删除产品分类" url="/productCategory/delete" required="产品分类查询"/>
+        <operation name="导入产品分类" url="/product_category/upload_excel"/>
+    </resource>
+
+    <resource name="店铺管理" unique-key="shop" iconCls="desktop-shop" module="shop-win" entryOperation="店铺查询">
+        <operation name="店铺查询" url="/shop/list" required="店铺明细查询"/>
+        <operation name="店铺明细查询" url="/shop/detail" configable="false"/>
+        <operation name="店铺更新" url="/shop/update" required="店铺查询"/>
+        <operation name="店铺删除" url="/shop/delete" required="店铺查询"/>
+        <operation name="动态获取评分" url="/shop/dynamicGetScore" required="店铺查询"/>
+    </resource>
+
+    <resource name="财务管理" unique-key="financial" iconCls="desktop-financial" module="financial-win"
+              entryOperation="财务数据查询">
+        <operation name="财务数据查询" url="/financial/list"/>
+        <operation name="财务导出财务数据" url="/financial/extract2excel" required="财务数据查询"/>
+        <operation name="仓库导出财务数据" url="/financial/extractMerger2excel" required="财务数据查询"/>
+    </resource>
+
+    <resource name="优惠活动管理" unique-key="activity" iconCls="desktop-gift" module="gift-win"
+              entryOperation="查询优惠活动">
+        <operation name="查询优惠活动" url="/activity/list"/>
+        <operation name="查询优惠活动明细" url="/activity/detail" required="查询优惠活动,查询品牌"/>
+        <operation name="增加优惠活动" url="/activity/save" required="查询优惠活动,查询品牌"/>
+        <operation name="修改优惠活动" url="/activity/update" required="查询优惠活动,查询优惠活动明细,查询品牌"/>
+        <operation name="删除优惠活动" url="/activity/delete" required="查询优惠活动"/>
+
+    </resource>
+    <!--
+    需要uams实现初始化授权的功能
+    <role name="客服">
+        <operation ref="订单界面"/>
+        <operation ref="查询订单"/>
+        <operation ref="编辑订单"/>
+        <operation ref="查看订单审核信息"/>
+        <operation ref="订单作废"/>
+        <operation ref="订单恢复"/>
+        <operation ref="导入进销存"/>
+        <operation ref="批量改物流"/>
+        <operation ref="加产品"/>
+        <operation ref="订单拆分"/>
+        <operation ref="加订单"/>
+        <operation ref="加售后换货订单"/>
+        <operation ref="订单售前换货"/>
+        <operation ref="删除订单详细"/>
+        <operation ref="补货换货订单导出"/>
+        <operation name="订单管理订单导出" />
+        <operation name="订单管理订单导入" />
+        <operation name="订单管理订单导入模板" />
+
+        <operation ref="异常订单查询"/>
+        <operation ref="异常订单详细"/>
+        <operation ref="异常订单解析日志"/>
+
+        <operation ref="预收款查询" />
+        <operation ref="预收款分配" />
+        <operation ref="导出预收款信息" />
+        <operation ref="预收款查询" />
+
+        <operation name="查询优惠活动"/>
+        <operation name="查询优惠活动明细" />
+
+        <operation ref="删除线下退款" />
+        <operation ref="修改线上退款信息" />
+        <operation ref="添加线下退款信息" />
+        <operation ref="导出退款信息" />
+
+        <operation ref="套餐查询" />
+        <operation ref="产品分类查询" />
+        <operation ref="查询产品" />
+        <operation ref="查询品牌" />
+        <operation ref="查询仓库" />
+        <operation ref="店铺查询" />
+    </role>
+
+    <role name="客服经理">
+        <operation ref="订单界面"/>
+        <operation ref="查询订单"/>
+        <operation ref="编辑订单"/>
+        <operation ref="查看订单审核信息"/>
+        <operation ref="订单作废"/>
+        <operation ref="订单恢复"/>
+        <operation ref="导入进销存"/>
+        <operation ref="批量改物流"/>
+        <operation ref="加产品"/>
+        <operation ref="订单拆分"/>
+        <operation ref="加订单"/>
+        <operation ref="加售后换货订单"/>
+        <operation ref="订单售前换货"/>
+        <operation ref="删除订单详细"/>
+        <operation ref="补货换货订单导出"/>
+        <operation ref="批量审核"/>
+        <operation name="订单管理订单导出"  />
+         <operation name="订单管理订单导入" />
+        <operation name="订单管理订单导入模板" />
+
+        <operation ref="异常订单查询"/>
+        <operation ref="异常订单详细"/>
+        <operation ref="异常订单解析日志"/>
+
+        <operation ref="预收款查询" />
+        <operation ref="预收款分配" />
+        <operation ref="导出预收款信息" />
+        <operation ref="预收款查询" />
+
+        <operation ref="删除线下退款" />
+        <operation ref="修改线上退款信息" />
+        <operation ref="添加线下退款信息" />
+        <operation ref="导出退款信息" />
+
+        <operation name="查询优惠活动" />
+        <operation name="查询优惠活动明细" />
+
+        <operation ref="套餐查询" />
+        <operation ref="产品分类查询" />
+        <operation ref="查询产品" />
+        <operation ref="查询品牌" />
+        <operation ref="查询仓库" />
+        <operation ref="店铺查询" />
+    </role>
+
+    <role name="物流">
+        <operation ref="物流保存或更新"/>
+        <operation ref="物流打印信息设计"/>
+
+        <operation ref="异常订单查询"/>
+        <operation ref="异常订单详细"/>
+        <operation ref="异常订单解析日志"/>
+
+        <operation name="订单管理订单导出"  />
+        <operation ref="订单界面"/>
+        <operation ref="查询订单"/>
+        <operation ref="编辑订单"/>
+        <operation ref="查看订单审核信息"/>
+        <operation ref="订单作废"/>
+        <operation ref="订单恢复"/>
+        <operation ref="导入进销存"/>
+        <operation ref="批量改物流"/>
+        <operation ref="加产品"/>
+        <operation ref="订单拆分"/>
+        <operation ref="加订单"/>
+        <operation ref="加售后换货订单"/>
+        <operation ref="订单售前换货"/>
+        <operation ref="删除订单详细"/>
+        <operation name="发货管理订单导出" />
+          <operation name="订单管理订单导入" />
+        <operation name="订单管理订单导入模板" />
+
+        <operation ref="查询发货订单项"/>
+        <operation ref="返回客服处理"/>
+        <operation ref="打印物流单"/>
+        <operation ref="打印发货单"/>
+        <operation ref="联想物流单号"/>
+        <operation ref="修改订单物流单号"/>
+        <operation ref="确认打印"/>
+        <operation ref="返回待处理"/>
+        <operation ref="验货"/>
+        <operation ref="验货订单查询"/>
+        <operation ref="返回已打印"/>
+        <operation ref="确认发货"/>
+        <operation ref="签收订单"/>
+        <operation ref="发货管理汇总导出"/>
+
+        <operation ref="查询所有仓库" />
+        <operation ref="查询仓库" />
+        <operation ref="添加仓库" />
+        <operation ref="删除仓库" />
+        <operation ref="编辑仓库" />
+
+        <operation ref="查询库存"/>
+        <operation ref="入库"/>
+        <operation ref="出库"/>
+        <operation ref="库存导入模版下载"/>
+        <operation ref="预览库存导入文件"/>
+        <operation ref="批量导入库存"/>
+        <operation ref="强制批量导入库存"/>
+
+        <operation ref="查询出入库产品"/>
+        <operation ref="查询产品出入库日志"/>
+
+        <operation name="查询优惠活动" />
+        <operation name="查询优惠活动明细" />
+
+        <operation ref="预收款查询" />
+        <operation ref="导出预收款信息" />
+        <operation ref="查询退款" />
+        <operation ref="导出退款信息" />
+        <operation ref="套餐查询" />
+        <operation ref="产品分类查询" />
+        <operation ref="查询产品" />
+        <operation ref="查询品牌" />
+    </role>
+
+    <role name="仓库人员">
+        <operation ref="物流保存或更新"/>
+        <operation ref="物流打印信息设计"/>
+
+        <operation ref="返回客服处理"/>
+        <operation ref="打印物流单"/>
+        <operation ref="打印发货单"/>
+        <operation ref="联想物流单号"/>
+        <operation ref="修改快递单号"/>
+        <operation ref="确认打印"/>
+        <operation ref="返回待处理"/>
+        <operation ref="验货"/>
+        <operation ref="验货订单查询"/>
+        <operation ref="返回已打印"/>
+        <operation ref="确认发货"/>
+        <operation name="发货管理订单导出" />
+        <operation ref="查询库存"/>
+        <operation ref="发货管理汇总导出"/>
+
+        <operation ref="查询出入库产品"/>
+        <operation ref="查询产品出入库日志"/>
+
+    </role>
+
+    <role name="运营">
+        <operation ref="查询产品"/>
+        <operation ref="添加产品"/>
+        <operation ref="编辑产品"/>
+        <operation ref="导入产品"/>
+        <operation ref="删除产品"/>
+
+        <operation ref="添加品牌"/>
+        <operation ref="查询品牌"/>
+        <operation ref="删除品牌"/>
+        <operation ref="修改品牌"/>
+        <operation ref="导入品牌"/>
+
+        <operation ref="新增产品分类"/>
+        <operation ref="修改产品分类"/>
+        <operation ref="删除产品分类"/>
+        <operation ref="导入产品分类"/>
+
+        <operation ref="异常订单查询"/>
+        <operation ref="异常订单详细"/>
+        <operation ref="异常订单解析日志"/>
+        <operation ref="更新异常订单项sku"/>
+        <operation ref="异常订单解析"/>
+
+               <operation ref="异常订单作废"/>
+               <operation ref="异常订单详细"/>
+               <operation ref="异常订单作废"/>
+
+
+        <operation ref="新增套餐"/>
+        <operation ref="删除套餐"/>
+        <operation ref="修改套餐"/>
+
+        <operation ref="查询平台信息"/>
+        <operation ref="删除平台信息"/>
+        <operation ref="修改平台信息"/>
+        <operation ref="添加平台信息"/>
+
+        <operation name="查询优惠活动" />
+        <operation name="查询优惠活动明细" />
+        <operation name="增加优惠活动" />
+        <operation name="修改优惠活动" />
+        <operation name="删除优惠活动" />
+
+        <operation ref="查询供应商"/>
+        <operation ref="删除供应商"/>
+        <operation ref="修改供应商"/>
+        <operation ref="添加供应商"/>
+
+        <operation ref="查询合同"/>
+        <operation ref="添加合同"/>
+        <operation ref="删除合同"/>
+        <operation ref="导入合同"/>
+
+        <operation ref="查询所有仓库" />
+        <operation ref="查询仓库" />
+
+        <operation ref="查询库存"/>
+        <operation ref="入库"/>
+        <operation ref="出库"/>
+        <operation ref="库存导入模版下载"/>
+        <operation ref="预览库存导入文件"/>
+        <operation ref="批量导入库存"/>
+        <operation ref="强制批量导入库存"/>
+
+        <operation ref="查询出入库产品"/>
+        <operation ref="查询产品出入库日志"/>
+
+        <operation ref="查询订单"/>
+        <operation ref="订单界面"/>
+        <operation ref="查看订单审核信息"/>
+        <operation ref="店铺查询" />
+        <operation name="订单管理订单导出"  />
+            <operation ref="发货管理汇总导出"/>
+    </role>
+
+    <role name="财务">
+        <operation ref="订单界面"/>
+        <operation ref="查询订单"/>
+        <operation ref="查看订单审核信息"/>
+        <operation ref="补货换货订单导出"/>
+        <operation name="订单管理订单导出"  />
+
+        <operation ref="预收款查询" />
+        <operation ref="导出预收款信息" />
+        <operation ref="查询退款" />
+        <operation ref="导出退款信息" />
+
+        <operation ref="导出财务数据" />
+
+        <operation name="查询优惠活动" />
+        <operation name="查询优惠活动明细" />
+
+        <operation ref="套餐查询" />
+        <operation ref="产品分类查询" />
+        <operation ref="查询产品" />
+        <operation ref="查询品牌" />
+        <operation ref="查询仓库" />
+        <operation ref="查询合同"/>
+        <operation ref="店铺查询" />
+    </role>
+    -->
+
+
+</permissions>

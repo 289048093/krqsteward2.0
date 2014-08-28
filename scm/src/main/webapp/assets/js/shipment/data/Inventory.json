@@ -1,0 +1,61 @@
+{"success": true, "msg": "验证成功", "data": {
+    "list": [
+        {
+            "orderId": 8,
+            "orderNo": "11",
+            "shippingNo": "1",
+            "orderStatus": "pending",
+            "shippingComp": "shunfeng",
+            "receiverName": "1",
+            "confirmUser": "1",
+            "remark": "1",
+            "buyerMessage": "1",
+            "orderItemInspectionVos": [
+                {
+                    "skuCode": "111",
+                    "prodName": "116",
+                    "orderNo": "11",
+                    "prodCode": "116",
+                    "categoryName": "阿斯蒂芬",
+                    "prodPrice": 116,
+                    "prodCount": 8,
+                    "actuallyNumber": 8,
+                    "brandName": "多样屋"
+                },
+                {
+                    "skuCode": "112",
+                    "prodName": "116",
+                    "orderNo": "11",
+                    "prodCode": "116",
+                    "categoryName": "阿斯蒂芬",
+                    "prodPrice": 116,
+                    "prodCount": 8,
+                    "actuallyNumber": 8,
+                    "brandName": "多样屋"
+                },
+                {
+                    "skuCode": "113",
+                    "prodName": "116",
+                    "orderNo": "11",
+                    "prodCode": "116",
+                    "categoryName": "阿斯蒂芬",
+                    "prodPrice": 116,
+                    "prodCount": 8,
+                    "actuallyNumber": 8,
+                    "brandName": "多样屋"
+                },
+                {
+                    "skuCode": "114",
+                    "prodName": "116",
+                    "orderNo": "11",
+                    "prodCode": "116",
+                    "categoryName": "阿斯蒂芬",
+                    "prodPrice": 116,
+                    "prodCount": 8,
+                    "actuallyNumber": 8,
+                    "brandName": "多样屋"
+                }
+            ]
+        }
+    ]
+}}
